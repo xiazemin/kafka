@@ -68,3 +68,9 @@ localhost:bin didi$ jps
 
 11132 QuorumPeerMain
 
+cd /Users/didi/kafka/server1/kafka\_2.10-0.8.2.1/bin
+
+$ ./kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 2 --partitions 1 --topic shuaige
+
+Created topic "shuaige".
+
