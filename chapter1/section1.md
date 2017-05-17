@@ -16,5 +16,25 @@ cd /Users/didi/kafka/server1/kafka\_2.10-0.8.2.1/bin \#进入到kafka的bin目�
 
 ./kafka-server-start.sh -daemon ../config/server.properties
 
+2、检查服务是否启动
 
+
+
+\#执行命令jps
+
+$ jps
+
+747
+
+11308 QuorumPeerMain
+
+11339 QuorumPeerMain
+
+11497 Kafka
+
+11634 Jps
+
+637 Main
+
+11132 QuorumPeerMain
 
