@@ -92,6 +92,16 @@ Created topic "shuaige".
 
 \[2017-05-17 21:38:37,347\] WARN Property topic is not valid \(kafka.utils.VerifiableProperties\)
 
+1233
+
+
+
+\[2017-05-17 21:48:28,798\] WARN Failed to send producer request with correlation id 11 to broker 0 with data for partitions \[shuaige,0\] \(kafka.producer.async.DefaultEventHandler\)
+
+java.io.IOException: Broken pipe
+
+	at sun.nio.ch.FileDispatcher.writev0\(Native Method
+
 '''在一台服务器上创建一个订阅者'''
 
 $ ./kafka-console-consumer.sh --zookeeper localhost:2181 --topic shuaige --from-beginning
@@ -161,6 +171,4 @@ localhost:bin didi$ ./zkCli.sh -server 127.0.0.1:2181
 \[zk: 127.0.0.1:2181\(CONNECTED\) 0\] ls /
 
 \[zookeeper, admin, consumers, config, controller, brokers, controller\_epoch\]
-
-
 
