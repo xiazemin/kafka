@@ -140,17 +140,11 @@ shuaige
 
 4.2、查看topic状态
 
-复制代码
+$ ./kafka-topics.sh --describe --zookeeper localhost:2181 --topic shuaige
 
-/kafka-topics.sh --describe --zookeeper localhost:12181 --topic shuaige
+Topic:shuaige	PartitionCount:1	ReplicationFactor:2	Configs:
 
-\#下面是显示信息
-
-Topic:ssports    PartitionCount:1    ReplicationFactor:2    Configs:
-
-```
-Topic: shuaige    Partition: 0    Leader: 1    Replicas: 0,1    Isr: 1
-```
+	Topic: shuaige	Partition: 0	Leader: 0	Replicas: 0,1	Isr: 0,1
 
 \#分区为为1  复制因子为2   他的  shuaige的分区为0
 
