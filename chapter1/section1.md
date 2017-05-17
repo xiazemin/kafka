@@ -84,17 +84,45 @@ Created topic "shuaige".
 
 --topic \#主题为shuaige
 
-
-
 '''在一台服务器上创建一个发布者'''
 
 \#创建一个broker，发布者
 
 ./kafka-console-producer.sh --broker-list 192.168.7.100:19092 --topic shuaige
 
-
-
 '''在一台服务器上创建一个订阅者'''
 
-./kafka-console-consumer.sh --zookeeper localhost:12181 --topic shuaige --from-beginning
+$ ./kafka-console-consumer.sh --zookeeper localhost:2181 --topic shuaige --from-beginning
+
+\[2017-05-17 21:37:34,110\] WARN \[console-consumer-78661\_localhost-1495028211868-555ab916-leader-finder-thread\], Failed to add leader for partitions \[shuaige,0\]; will retry \(kafka.consumer.ConsumerFetcherManager$LeaderFinderThread\)
+
+kafka.common.NotLeaderForPartitionException
+
+	at sun.reflect.GeneratedConstructorAccessor2.newInstance\(Unknown Source\)
+
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance\(DelegatingConstructorAccessorImpl.java:27\)
+
+	at java.lang.reflect.Constructor.newInstance\(Constructor.java:513\)
+
+	at java.lang.Class.newInstance0\(Class.java:357\)
+
+	at java.lang.Class.newInstance\(Class.java:310\)
+
+	at kafka.common.ErrorMapping$.exceptionFor\(ErrorMapping.scala:86\)
+
+	at kafka.consumer.SimpleConsumer.earliestOrLatestOffset\(SimpleConsumer.scala:169\)
+
+	at kafka.consumer.ConsumerFetcherThread.handleOffsetOutOfRange\(ConsumerFetcherThread.scala:60\)
+
+	at kafka.server.AbstractFetcherThread$$anonfun$addPartitions$2.apply\(AbstractFetcherThread.scala:177\)
+
+	at kafka.server.AbstractFetcherThread$$anonfun$addPartitions$2.apply\(AbstractFetcherThread.scala:172\)
+
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply\(TraversableLike.scala:772\)
+
+	at scala.collection.immutable.Map$Map1.foreach\(Map.scala:109\)
+
+	at scala.collection.TraversableLike$WithFilter.foreach\(TraversableLike.scala:771\)
+
+	at kafka.server.AbstractFetcherThread.addPartitions\(AbstractFetcherThread.scala:172\)
 
