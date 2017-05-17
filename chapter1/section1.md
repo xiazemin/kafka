@@ -18,8 +18,6 @@ cd /Users/didi/kafka/server1/kafka\_2.10-0.8.2.1/bin \#进入到kafka的bin目�
 
 2、检查服务是否启动
 
-
-
 \#执行命令jps
 
 $ jps
@@ -37,4 +35,12 @@ $ jps
 637 Main
 
 11132 QuorumPeerMain
+
+/Users/didi/kafka/server2/kafka\_2.10-0.8.2.1/config
+
+vi server.properties
+
+broker.id=0  \#当前机器在集群中的唯一标识，和zookeeper的myid性质一样
+
+port=9093 \#当前kafka对外提供服务的端口默认是9093
 
