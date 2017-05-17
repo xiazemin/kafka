@@ -90,10 +90,6 @@ Created topic "shuaige".
 
 .$ ./kafka-console-producer.sh --broker-list localhost:9092 --topic shuaige
 
-
-
-
-
 \[2017-05-17 21:38:37,347\] WARN Property topic is not valid \(kafka.utils.VerifiableProperties\)
 
 '''在一台服务器上创建一个订阅者'''
@@ -134,5 +130,29 @@ at scala.collection.TraversableLike$WithFilter.foreach\(TraversableLike.scala:77
 at kafka.server.AbstractFetcherThread.addPartitions\(AbstractFetcherThread.scala:172\)
 ```
 
+4.1、查看topic
 
+
+
+./kafka-topics.sh --list --zookeeper localhost:12181
+
+\#就会显示我们创建的所有topic
+
+4.2、查看topic状态
+
+
+
+复制代码
+
+/kafka-topics.sh --describe --zookeeper localhost:12181 --topic shuaige
+
+\#下面是显示信息
+
+Topic:ssports    PartitionCount:1    ReplicationFactor:2    Configs:
+
+    Topic: shuaige    Partition: 0    Leader: 1    Replicas: 0,1    Isr: 1
+
+\#分区为为1  复制因子为2   他的  shuaige的分区为0 
+
+\#Replicas: 0,1   复制的为0，1
 
