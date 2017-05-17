@@ -76,5 +76,25 @@ $ ./kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 2 -
 
 Created topic "shuaige".
 
+\#解释
 
+--replication-factor 2   \#复制两份
+
+--partitions 1 \#创建1个分区
+
+--topic \#主题为shuaige
+
+
+
+'''在一台服务器上创建一个发布者'''
+
+\#创建一个broker，发布者
+
+./kafka-console-producer.sh --broker-list 192.168.7.100:19092 --topic shuaige
+
+
+
+'''在一台服务器上创建一个订阅者'''
+
+./kafka-console-consumer.sh --zookeeper localhost:12181 --topic shuaige --from-beginning
 
