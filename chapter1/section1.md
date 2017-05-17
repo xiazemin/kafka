@@ -132,15 +132,13 @@ at kafka.server.AbstractFetcherThread.addPartitions\(AbstractFetcherThread.scala
 
 4.1、查看topic
 
+$  ./kafka-topics.sh --list --zookeeper localhost:2181
 
-
-./kafka-topics.sh --list --zookeeper localhost:12181
+shuaige
 
 \#就会显示我们创建的所有topic
 
 4.2、查看topic状态
-
-
 
 复制代码
 
@@ -150,9 +148,11 @@ at kafka.server.AbstractFetcherThread.addPartitions\(AbstractFetcherThread.scala
 
 Topic:ssports    PartitionCount:1    ReplicationFactor:2    Configs:
 
-    Topic: shuaige    Partition: 0    Leader: 1    Replicas: 0,1    Isr: 1
+```
+Topic: shuaige    Partition: 0    Leader: 1    Replicas: 0,1    Isr: 1
+```
 
-\#分区为为1  复制因子为2   他的  shuaige的分区为0 
+\#分区为为1  复制因子为2   他的  shuaige的分区为0
 
 \#Replicas: 0,1   复制的为0，1
 
