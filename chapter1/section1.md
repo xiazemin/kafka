@@ -44,3 +44,27 @@ broker.id=0  \#当前机器在集群中的唯一标识，和zookeeper的myid性�
 
 port=9093 \#当前kafka对外提供服务的端口默认是9093
 
+$ pwd
+
+/Users/didi/kafka/server2/kafka\_2.10-0.8.2.1/bin
+
+$ ./kafka-server-start.sh -daemon ../config/server.properties
+
+localhost:bin didi$ jps
+
+747
+
+11308 QuorumPeerMain
+
+11339 QuorumPeerMain
+
+11710 Kafka
+
+11497 Kafka
+
+11711 Jps
+
+637 Main
+
+11132 QuorumPeerMain
+
