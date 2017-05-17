@@ -142,11 +142,25 @@ shuaige
 
 $ ./kafka-topics.sh --describe --zookeeper localhost:2181 --topic shuaige
 
-Topic:shuaige	PartitionCount:1	ReplicationFactor:2	Configs:
+Topic:shuaige    PartitionCount:1    ReplicationFactor:2    Configs:
 
-	Topic: shuaige	Partition: 0	Leader: 0	Replicas: 0,1	Isr: 0,1
+```
+Topic: shuaige    Partition: 0    Leader: 0    Replicas: 0,1    Isr: 0,1
+```
 
 \#分区为为1  复制因子为2   他的  shuaige的分区为0
 
 \#Replicas: 0,1   复制的为0，1
+
+$ pwd
+
+/Users/didi/zookeeper/server1/zookeeper-3.4.6/bin
+
+localhost:bin didi$ ./zkCli.sh -server 127.0.0.1:2181
+
+\[zk: 127.0.0.1:2181\(CONNECTED\) 0\] ls /
+
+\[zookeeper, admin, consumers, config, controller, brokers, controller\_epoch\]
+
+
 
