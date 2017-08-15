@@ -1,7 +1,5 @@
 # Kafka 实时应用程序\(Twitter\)
 
-
-
 让我们分析一个实时应用程序，以获取最新的Twitter Feed和其标签。早些时候，我们已经看到了Storm和Spark与Kafka的集成。在这两种情况下，我们创建了一个Kafka生产者\(使用cli\)向Kafka生态系统发送消息。然后，storm和spark集成通过使用Kafka消费者读取消息，并将其分别注入到storm和spark生态系统中。因此，实际上我们需要创建一个Kafka Producer，
 
 * 使用“Twitter Streaming API"阅读Twitter Feed，
@@ -47,7 +45,7 @@ Status
 Sta-tus
 >
 (1000);
-      
+
       if(args.length 
 <
  5){
@@ -74,7 +72,7 @@ twitter-search-keywords
 ");
          return;
       }
-      
+
       String consumerKey = args[0].toString();
       String consumerSecret = args[1].toString();
       String accessToken = args[2].toString();
@@ -92,7 +90,7 @@ twitter-search-keywords
 
       TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).get-Instance();
       StatusListener listener = new StatusListener() {
-        
+
          @Override
          public void onStatus(Status status) {      
             queue.offer(status);
@@ -100,7 +98,7 @@ twitter-search-keywords
             // System.out.println("@" 
 &
 plus; status.getUser().getScreenName() 
-               
+
 &
 plus; " - " 
 &
@@ -117,15 +115,15 @@ plus; status.getUser().getScreen-Name());
                System.out.println(hashtage.getText());
             }*/
          }
-         
+
          @Override
          public void onDeletionNotice(StatusDeletionNotice statusDeletion-Notice) {
             // System.out.println("Got a status deletion notice id:" 
-               
+
 &
 plus; statusDeletionNotice.getStatusId());
          }
-         
+
          @Override
          public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
             // System.out.println("Got track limitation notice:" 
@@ -145,26 +143,26 @@ plus;
 &
 plus; upToStatusId);
          }      
-         
+
          @Override
          public void onStallWarning(StallWarning warning) {
             // System.out.println("Got stall warning:" 
 &
 plus; warning);
          }
-         
+
          @Override
          public void onException(Exception ex) {
             ex.printStackTrace();
          }
       };
       twitterStream.addListener(listener);
-      
+
       FilterQuery query = new FilterQuery().track(keyWords);
       twitterStream.filter(query);
 
       Thread.sleep(5000);
-      
+
       //Add Kafka producer config settings
       Properties props = new Properties();
       props.put("bootstrap.servers", "localhost:9092");
@@ -173,12 +171,12 @@ plus; warning);
       props.put("batch.size", 16384);
       props.put("linger.ms", 1);
       props.put("buffer.memory", 33554432);
-      
+
       props.put("key.serializer", 
          "org.apache.kafka.common.serializa-tion.StringSerializer");
       props.put("value.serializer", 
          "org.apache.kafka.common.serializa-tion.StringSerializer");
-      
+
       Producer
 <
 String, String
@@ -190,12 +188,12 @@ String, String
 (props);
       int i = 0;
       int j = 0;
-      
+
       while(i 
 <
  10) {
          Status ret = queue.poll();
-         
+
          if (ret == null) {
             Thread.sleep(100);
             i++;
@@ -218,7 +216,6 @@ String, String
       twitterStream.shutdown();
    }
 }
-
 ```
 
 ### 汇编
@@ -251,7 +248,6 @@ twitter-ac-cess-token-secret
 >
 
 my-first-topic food
-
 ```
 
 在另一个窗口中运行前一章中解释的Spark / Storm应用程序中的任何一个。主要要注意的是，在这两种情况下使用的主题应该是相同的。在这里，我们使用“我的第一主题"作为主题名称。
