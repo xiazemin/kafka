@@ -6,3 +6,5 @@ Exception in thread "main" org.apache.kafka.common.config.ConfigException: Missi
 
 props.put\("partition.assignment.strategy", "range"\);
 
+
+
